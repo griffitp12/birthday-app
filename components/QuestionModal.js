@@ -1,23 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, View, Text, StyleSheet, Modal, TextInput } from "react-native";
 
 import Colors from "../constants/Colors";
 
 const QuestionModal = (props) => {
+  const [enteredAnswer, setEnteredAnswer] = useState("");
+
   hideModalHandler = () => {
     console.log("hiding modal");
     props.setModalVisible(!props.modalVisible);
   };
 
+  enteredAnswerHandler = (enteredAnswer) => {
+    setEnteredAnswer(enteredAnswer);
+  };
+
   answerQuestionHandler = () => {
     console.log("hiding modal with answer");
+    props.setAnswer(enteredAnswer);
     props.setModalVisible(!props.modalVisible);
   };
+
   return (
     <Modal visible={props.modalVisible} animationType="slide">
       <View style={styles.modalView}>
         <Text style={styles.modalText}>{props.question}</Text>
-        <TextInput></TextInput>
+        <TextInput
+          placeholder="add your answer here"
+          style={styles.input}
+          onChangeText={enteredAnswerHandler}
+          value={enteredAnswer}
+        />
         <View style={styles.button}>
           <Button
             title="Add Answer"
@@ -42,6 +55,13 @@ const styles = StyleSheet.create({
   },
   modalText: {
     fontSize: 20,
+  },
+  input: {
+    width: "80%",
+    borderColor: "black",
+    borderWidth: 1,
+    padding: 10,
+    marginBottom: 10,
   },
 });
 

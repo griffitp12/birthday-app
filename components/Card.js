@@ -21,6 +21,7 @@ const Card = (props) => {
         modalVisible={modalVisible}
         question={props.question}
         setModalVisible={setModalVisible}
+        setAnswer={setAnswer}
       />
     </Pressable>
   );
