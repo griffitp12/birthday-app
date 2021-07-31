@@ -6,7 +6,7 @@ import Colors from "../constants/Colors";
 const Header = (props) => {
   return (
     <View style={styles.headerContainer}>
-      <Text>The Birthday App</Text>
+      <Text style={styles.headerTitle}>The Birthday App</Text>
     </View>
   );
 };
@@ -19,6 +19,10 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primary,
     alignItems: "center",
     justifyContent: "center",
+  },
+  headerTitle: {
+    color: "black",
+    fontSize: 25,
   },
 });
 

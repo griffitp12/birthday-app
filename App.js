@@ -1,24 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { StyleSheet, View } from "react-native";
 
-import Header from './components/Header'
+import Header from "./components/Header";
+import Card from "./components/Card";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Header style={styles.header}/>
-      <Text>Welcome to the birthday app!</Text>
+    <View style={styles.screen}>
+      <Header />
+      <Card question="What is your favorite color?" />
       <StatusBar style="auto" />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  screen: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
