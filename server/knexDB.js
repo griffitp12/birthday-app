@@ -11,7 +11,7 @@ const db = knex({
   },
   migrations: {
     tableName: "migrations",
-    directory: "./migrations",
+    directory: "./server/migrations",
   },
 });
 

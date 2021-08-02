@@ -1,4 +1,4 @@
-const db = require("./knex");
+const db = require("./knexDB");
 
 const resolvers = {
   Query: {
@@ -8,17 +8,6 @@ const resolvers = {
         .from("notes")
         .then((data) => {
           return data;
-        });
-    },
-  },
-
-  Mutation: {
-    addNote: (parent, args) => {
-      return db("notes")
-        .insert({ title: args.title, body: args.body })
-        .then((data) => {
-          console.log("res data:", data);
-          return;
         });
     },
   },
