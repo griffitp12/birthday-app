@@ -4,12 +4,17 @@ import { StyleSheet, View } from "react-native";
 
 import Header from "./components/Header";
 import Card from "./components/Card";
+import Questions from "./questions/questions";
 
 export default function App() {
+  let cardList = Questions.map((question) => {
+    return <Card question={question.question} id={question.id}></Card>;
+  });
+
   return (
     <View style={styles.screen}>
       <Header />
-      <Card question="What is your favorite color?" />
+      {cardList}
       <StatusBar style="auto" />
     </View>
   );

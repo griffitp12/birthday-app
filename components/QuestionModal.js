@@ -7,7 +7,6 @@ const QuestionModal = (props) => {
   const [enteredAnswer, setEnteredAnswer] = useState("");
 
   hideModalHandler = () => {
-    console.log("hiding modal");
     props.setModalVisible(!props.modalVisible);
   };
 
@@ -16,7 +15,6 @@ const QuestionModal = (props) => {
   };
 
   answerQuestionHandler = () => {
-    console.log("hiding modal with answer");
     props.setAnswer(enteredAnswer);
     props.setModalVisible(!props.modalVisible);
   };

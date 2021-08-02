@@ -9,7 +9,6 @@ const Card = (props) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   const cardPress = () => {
-    console.log("modal is visible");
     setModalVisible(true);
   };
 
