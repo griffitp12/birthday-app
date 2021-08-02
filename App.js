@@ -2,13 +2,13 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, View } from "react-native";
 
-import Header from "./components/Header";
-import Card from "./components/Card";
-import Questions from "./questions/questions";
+import Header from "./src/components/Header";
+import Card from "./src/components/Card";
+import Questions from "./src/data/questions";
 
 export default function App() {
   let cardList = Questions.map((question) => {
-    return <Card question={question.question} id={question.id}></Card>;
+    return <Card question={question.question} key={question.id}></Card>;
   });
 
   return (
