@@ -21,7 +21,7 @@ const GET_QUESTIONS = gql`
 const QuestionsDash = (props) => {
   const { data, loading, error } = useQuery(GET_QUESTIONS);
 
-  console.log(data);
+  console.log(data.allQuestions);
 
   /* if (loading) {
     return <Loading />;
@@ -29,7 +29,7 @@ const QuestionsDash = (props) => {
 
   return (
     <View>
-      <Card question="dummy question" />
+      <Card question={data.allQuestions[0].question} />
     </View>
   );
 };
