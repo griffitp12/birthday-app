@@ -2,7 +2,7 @@ const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type Question {
-    id: Int!
+    id: ID!
     question: String!
     answer: String!
   }

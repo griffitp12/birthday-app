@@ -5,7 +5,7 @@ const resolvers = {
     allQuestions: () => {
       return db
         .select("*")
-        .from("notes")
+        .from("questions")
         .then((data) => {
           return data;
         });

@@ -14,7 +14,9 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@apollo/client": "^3.4.3",
     "apollo-server-express": "^3.1.1",
+    "axios": "^0.21.1",
     "chai": "^4.3.4",
     "dotenv": "^10.0.0",
     "expo": "~42.0.1",
@@ -33,5 +35,6 @@
   "devDependencies": {
     "@babel/core": "^7.9.0"
   },
-  "private": true
+  "private": true,
+  "proxy": "http://localhost:4000"
 }

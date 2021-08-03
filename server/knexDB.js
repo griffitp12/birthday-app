@@ -13,6 +13,9 @@ const db = knex({
     tableName: "migrations",
     directory: "./server/migrations",
   },
+  seeds: {
+    directory: "./server/seeds",
+  },
 });
 
 module.exports = db;

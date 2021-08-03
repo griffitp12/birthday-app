@@ -1,22 +1,28 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, View } from "react-native";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 import Header from "./src/components/Header";
-import Card from "./src/components/Card";
-import Questions from "./src/data/questions";
+import QuestionsDash from "./src/views/QuestionsDash";
+
+import ENV from "./src/constants/ENV";
+
+// this variable is outside App only because of an example I found in the apollo docs
+const client = new ApolloClient({
+  uri: `https://${ENV.localhost}:${ENV.port}/graphql`, //should set this to a variable?
+  cache: new InMemoryCache(),
+});
 
 export default function App() {
-  let cardList = Questions.map((question) => {
-    return <Card question={question.question} key={question.id}></Card>;
-  });
-
   return (
-    <View style={styles.screen}>
-      <Header />
-      {cardList}
-      <StatusBar style="auto" />
-    </View>
+    <ApolloProvider client={client}>
+      <View style={styles.screen}>
+        <Header />
+        <QuestionsDash />
+        <StatusBar style="auto" />
+      </View>
+    </ApolloProvider>
   );
 }
 
