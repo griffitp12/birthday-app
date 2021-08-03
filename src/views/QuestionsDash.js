@@ -16,18 +16,20 @@ const GET_QUESTIONS = gql`
   }
 `;
 
+
+
 const QuestionsDash = (props) => {
   const { data, loading, error } = useQuery(GET_QUESTIONS);
 
-  console.log(error);
+  console.log(data);
 
-  if (loading) {
+  /* if (loading) {
     return <Loading />;
-  }
+  } */
 
   return (
     <View>
-      <Card question="nothing" />
+      <Card question="dummy question" />
     </View>
   );
 };
