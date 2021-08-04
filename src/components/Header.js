@@ -2,7 +2,7 @@ import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 
 import Colors from "../constants/Colors";
-import Card from "../components/Card";
+import Card from "./QuestionCard";
 
 const Header = (props) => {
   return (

@@ -5,7 +5,7 @@ import Colors from "../constants/Colors";
 import QuestionModal from "./QuestionModal";
 
 const Card = (props) => {
-  const [answer, setAnswer] = useState("this is not the answer");
+  const [answer, setAnswer] = useState(props.answer);
   const [modalVisible, setModalVisible] = useState(false);
 
   const cardPress = () => {
@@ -21,6 +21,7 @@ const Card = (props) => {
         question={props.question}
         setModalVisible={setModalVisible}
         setAnswer={setAnswer}
+        handler={props.handler}
       />
     </Pressable>
   );

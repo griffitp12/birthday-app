@@ -17,6 +17,7 @@ const QuestionModal = (props) => {
   answerQuestionHandler = () => {
     props.setAnswer(enteredAnswer);
     props.setModalVisible(!props.modalVisible);
+    props.handler({ question: props.question, answer: enteredAnswer });
   };
 
   return (
