@@ -26,6 +26,7 @@ const QuestionsDash = (props) => {
   };
 
   const { data, loading, error } = useQuery(GET_QUESTIONS);
+  console.log(data, loading, error)
   if (loading) {
     return <Loading />;
   }

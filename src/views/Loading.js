@@ -3,8 +3,10 @@ import { View, ActivityIndicator } from "react-native";
 
 import Colors from "../constants/Colors";
 
-export default () => (
+const Loading = (props) => (
   <View>
     <ActivityIndicator size="large" color={Colors.accent} />
   </View>
 );
+
+export default Loading;

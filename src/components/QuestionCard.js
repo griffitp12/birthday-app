@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Pressable, Text, StyleSheet } from "react-native";
 
 import Colors from "../constants/Colors";
-import QuestionModal from "./QuestionModal";
+import QuestionModal from "../modals/QuestionModal";
 
-const Card = (props) => {
+const QuestionCard = (props) => {
   const [answer, setAnswer] = useState(props.answer);
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -51,4 +51,4 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
 });
-export default Card;
+export default QuestionCard;
