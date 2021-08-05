@@ -11,9 +11,9 @@ import Loading from "./Loading";
 
 const GET_QUESTIONS = gql`
   {
-    allQuestions {
+    allDefaultQuestions {
       question
-      answer
+      birthday
       id
     }
   }

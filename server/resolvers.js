@@ -2,10 +2,10 @@ const db = require("./knexDB");
 
 const resolvers = {
   Query: {
-    allQuestions: () => {
+    allDefaultQuestions: () => {
       return db
         .select("*")
-        .from("questions")
+        .from("default_questions")
         .then((data) => {
           return data;
         });
