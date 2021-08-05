@@ -7,30 +7,49 @@ import { Header, Avatar } from "react-native-elements";
 /* import Header from "./src/components/Header"; */
 import ProfileModal from "./src/modals/ProfileModal";
 import Login from "./src/views/Login";
+import Register from "./src/views/Register";
 import QuestionsDash from "./src/views/QuestionsDash";
 import Colors from "./src/constants/Colors";
 
 // this variable is outside App only because of an example I found in the apollo docs
 const client = new ApolloClient({
-  uri: `https://f53c304ac57c.ngrok.io/graphql`, //should set this to a variable?
+  uri: `https://1c1282a0e700.ngrok.io/graphql`, //should set this to a variable?
   cache: new InMemoryCache(),
 });
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isRegistered, setIsRegistered] = useState(false);
   const [user, setUser] = useState({});
   const [profileModalVisible, setProfileModalVisible] = useState(false);
 
   const profileViewHandler = () => {
-    console.log("opening profile");
-    setProfileModalVisible(true);
+    if (user.username) {
+      setProfileModalVisible(true);
+    } else {
+      alert("please log in!");
+    }
   };
 
   const mainViewHandler = () => {
     if (isLoggedIn) {
       return <QuestionsDash />;
+    } else if (isRegistered) {
+      return (
+        <Login
+          setIsRegistered={setIsRegistered}
+          logInUser={setIsLoggedIn}
+          setUser={setUser}
+        />
+      );
     } else {
-      return <Login logInUser={setIsLoggedIn} setUser={setUser} />;
+      return (
+        <Register
+          setIsRegistered={setIsRegistered}
+          logInUser={setIsLoggedIn}
+          setUser={setUser}
+        />
+      );
     }
   };
 
@@ -47,7 +66,7 @@ export default function App() {
         />
         <ProfileModal
           modalVisible={profileModalVisible}
-          username={user}
+          user={user}
           setModalVisible={setProfileModalVisible}
         />
         {mainViewHandler()}

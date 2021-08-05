@@ -8,10 +8,13 @@ const ProfileModal = (props) => {
   const hideModalHandler = () => {
     props.setModalVisible(false);
   };
+
+ 
+
   return (
     <Modal visible={props.modalVisible} animationType="slide">
       <View style={styles.modalContainer}>
-        <Text>This is the profile view</Text>
+        <Text>Welcome, {props.user.username}</Text>
         <Button title="Close tha modal" onPress={hideModalHandler} />
       </View>
     </Modal>

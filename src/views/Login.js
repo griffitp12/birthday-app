@@ -7,9 +7,13 @@ const Login = (props) => {
   const [enteredName, setEnteredName] = useState("");
 
   const setUsernameHandler = () => {
-      // verify login info
-    props.setUser(enteredName);
-    props.logInUser(true)
+    // verify login info
+    props.setUser({ username: enteredName });
+    props.logInUser(true);
+  };
+
+  const toggleRegister = () => {
+    props.setIsRegistered(false)
   }
 
   return (
@@ -21,10 +25,13 @@ const Login = (props) => {
         onChangeText={setEnteredName}
       ></TextInput>
       <View style={styles.buttonContainer}>
-          <View style={styles.button}>
-            <Button title="LOGIN" onPress={setUsernameHandler} />
-          </View>
+        <View style={styles.button}>
+          <Button title="LOGIN" onPress={setUsernameHandler} />
         </View>
+        <View style={styles.button}>
+          <Button title="Register a new user!" onPress={toggleRegister} />
+        </View>
+      </View>
     </CardTemplate>
   );
 };
