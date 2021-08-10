@@ -1,8 +1,9 @@
-require("dotenv").config();
-const typeDefs = require("./graphql/schema");
-const resolvers = require("./graphql/resolvers");
-const { ApolloServer } = require("apollo-server-express");
-const server = new ApolloServer({ typeDefs, resolvers });
+/* require("dotenv").config(); */
+/* const typeDefs = require("./graphql/schema"); */
+import { defaultQuestionsResolvers } from "./graphql/resolvers/defaultQuestionsResolvers";
+import { ApolloServer } from "apollo-server-express";
+
+console.log(defaultQuestionsResolvers)
 
 const express = require("express");
 const app = express();
@@ -15,6 +16,11 @@ const startServer = async function () {
     await db.migrate.latest();
     await db.seed.run();
     console.log("starting express server");
+    const server = new ApolloServer({
+      schema: await buildSchema({
+        resolvers: [defualtQuestionsResolvers],
+      }),
+    });
     await server.start();
     server.applyMiddleware({ app });
     app.listen({ port: process.env.PORT || 4000 }, () => {

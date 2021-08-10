@@ -1,6 +1,6 @@
-const { gql } = require("apollo-server-express");
+import  { gql } from "apollo-server-express";
 
-const typeDefs = gql`
+export default typeDefs = gql`
   scalar Date
 
   type User {
@@ -40,5 +40,3 @@ const typeDefs = gql`
     allDefaultQuestions: [DefaultQuestion]
   }
 `;
-
-module.exports = typeDefs;

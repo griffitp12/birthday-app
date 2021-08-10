@@ -1,5 +1,6 @@
-const db = require("../knexDB");
-const { GraphQLScalarType, Kind } = require("graphql");
+import db from "../../knexDB";
+import { GraphQLScalarType, Kind } from "graphql"
+import { Child } from "../schema"
 
 const dateScalar = new GraphQLScalarType({
   name: "Date",
@@ -18,19 +19,7 @@ const dateScalar = new GraphQLScalarType({
   },
 })
 
-const resolvers = {
+export default childResolvers = {
   Date: dateScalar,
 
-  Query: {
-    allDefaultQuestions: () => {
-      return db
-        .select("*")
-        .from("default_questions")
-        .then((data) => {
-          return data;
-        });
-    },
-  },
 };
-
-module.exports = resolvers;
