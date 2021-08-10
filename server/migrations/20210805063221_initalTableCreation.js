@@ -20,7 +20,7 @@ exports.up = function (knex) {
       table.text("name").notNullable();
       table.date("birthday").notNullable();
       table.text("pronouns").notNullable();
-      table.uuid("parentID").references("user_id").inTable("users");
+      table.uuid("parent_id").references("user_id").inTable("users");
     }),
     knex.schema.createTable("capsules", (table) => {
       table
