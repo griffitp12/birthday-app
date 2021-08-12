@@ -13,7 +13,7 @@ import Colors from "./src/constants/Colors";
 
 // this variable is outside App only because of an example I found in the apollo docs
 const client = new ApolloClient({
-  uri: `https://1c1282a0e700.ngrok.io/graphql`, //should set this to a variable?
+  uri: `https://ce4937c677f9.ngrok.io/graphql`, //should set this to a variable?
   cache: new InMemoryCache(),
 });
 

@@ -3,10 +3,12 @@ import { View, StyleSheet, Text, Button } from "react-native";
 import { Input } from "react-native-elements";
 
 import CardTemplate from "../components/CardTemplate";
+import register from "../functions/auth/register"
 
 const Register = (props) => {
   const [enteredUsername, setEnteredUsername] = useState("");
   const [enteredEmail, setEnteredEmail] = useState("");
+  const [enteredPassword, setEnteredPassword] = useState("");
 
   const setUsernameHandler = () => {
     // verify login info
@@ -18,8 +20,9 @@ const Register = (props) => {
     const newUser = {
       username: enteredUsername,
       email: enteredEmail,
+      password: enteredPassword
     };
-    console.log(newUser);
+    register.registerUser(newUser);
   };
 
   const toggleLogin = () => {
@@ -36,6 +39,10 @@ const Register = (props) => {
       <Input
         placeholder="enter your email address"
         onChangeText={setEnteredEmail}
+      />
+      <Input
+        placeholder="choose a password"
+        onChangeText={setEnteredPassword}
       />
       <View style={styles.buttonContainer}>
         <View style={styles.button}>

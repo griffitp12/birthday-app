@@ -1,15 +1,23 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Text, TextInput, Button } from "react-native";
+import { View, StyleSheet, Text, Button } from "react-native";
+import { Input } from "react-native-elements"
 
 import CardTemplate from "../components/CardTemplate";
+import login from "../functions/auth/login.js"
 
 const Login = (props) => {
-  const [enteredName, setEnteredName] = useState("");
+  const [enteredEmail, setEnteredEmail] = useState("");
+  const [enteredPassword, setEnteredPassword] = useState("");
+  
 
-  const setUsernameHandler = () => {
-    // verify login info
-    props.setUser({ username: enteredName });
-    props.logInUser(true);
+  const loginHandler = () => {
+    const userData = {
+      email: enteredEmail,
+      password: enteredPassword
+    }
+    login.loginUser(userData)
+    /* props.setUser({ username: enteredName });
+    props.logInUser(true); */
   };
 
   const toggleRegister = () => {
@@ -19,14 +27,19 @@ const Login = (props) => {
   return (
     <CardTemplate>
       <Text>This is the login screen</Text>
-      <TextInput
-        style={styles.input}
-        value={enteredName}
-        onChangeText={setEnteredName}
-      ></TextInput>
+      <Input
+        placeholder="enter your email"
+        value={enteredEmail}
+        onChangeText={setEnteredEmail}
+      ></Input>
+      <Input
+        placeholder="enter your password"
+        value={enteredPassword}
+        onChangeText={setEnteredPassword}
+      ></Input>
       <View style={styles.buttonContainer}>
         <View style={styles.button}>
-          <Button title="LOGIN" onPress={setUsernameHandler} />
+          <Button title="LOGIN" onPress={loginHandler} />
         </View>
         <View style={styles.button}>
           <Button title="Register a new user!" onPress={toggleRegister} />

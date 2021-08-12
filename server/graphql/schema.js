@@ -1,6 +1,6 @@
-import  { gql } from "apollo-server-express";
+import { gql } from "apollo-server-express";
 
-export default typeDefs = gql`
+const typeDefs = gql`
   scalar Date
 
   type User {
@@ -40,3 +40,5 @@ export default typeDefs = gql`
     allDefaultQuestions: [DefaultQuestion]
   }
 `;
+
+export default typeDefs;

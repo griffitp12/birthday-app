@@ -3,7 +3,7 @@ import { View, Button } from "react-native";
 import { gql, useQuery } from "@apollo/client";
 
 import Colors from "../constants/Colors";
-import Queries from "../data/queries";
+import Queries from "../data/userQueries.js";
 
 import CardTemplate from "../components/CardTemplate";
 import QuestionCard from "../components/QuestionCard";
